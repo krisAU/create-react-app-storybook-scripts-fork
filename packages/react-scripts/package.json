@@ -1,6 +1,6 @@
 {
   "name": "react-storybook-scripts",
-  "version": "0.9.0-rc5",
+  "version": "0.9.0",
   "description": "Configuration and scripts for Create React App.",
   "repository": "thtliife/create-react-app-storybook-scripts-fork",
   "license": "BSD-3-Clause",
