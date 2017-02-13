@@ -25,9 +25,12 @@ module.exports = function(appPath, appName, verbose, originalDirectory, template
   // Setup the script rules
   appPackage.scripts = {
     'start': 'react-scripts start',
+    'component': 'react-scripts component',
     'build': 'react-scripts build',
     'test': 'react-scripts test --env=jsdom',
-    'eject': 'react-scripts eject'
+    'eject': 'react-scripts eject',
+    'storybook': 'react-scripts storybook -p 6006',
+    'build-storybook': 'react-scripts build-storybook'
   };
 
   fs.writeFileSync(
@@ -120,6 +123,9 @@ module.exports = function(appPath, appName, verbose, originalDirectory, template
     console.log(chalk.cyan('  ' + command + ' start'));
     console.log('    Starts the development server.');
     console.log();
+    console.log(chalk.cyan('  ' + command + ' component'));
+    console.log('    Creates a new react component boilerplate.');
+    console.log();
     console.log(chalk.cyan('  ' + command + ' run build'));
     console.log('    Bundles the app into static files for production.');
     console.log();
@@ -129,6 +135,19 @@ module.exports = function(appPath, appName, verbose, originalDirectory, template
     console.log(chalk.cyan('  ' + command + ' run eject'));
     console.log('    Removes this tool and copies build dependencies, configuration files');
     console.log('    and scripts into the app directory. If you do this, you can’t go back!');
+    console.log();
+    console.log(chalk.cyan('  ' + command + ' run storybook'));
+    console.log('    Starts the storybook server for easy mocking, testing and development');
+    console.log('    of components.');
+    console.log();
+    console.log(chalk.cyan('  ' + command + ' run build-storybook'));
+    console.log('    build the storybook configured in the Storybook directory into a');
+    console.log('    static webpack and saves it at:');
+    console.log('    ' + appPath + '/storybook-static.');
+    console.log('    To test it locally, simply run the following commands:');
+    console.log();
+    console.log(chalk.cyan('  cd'), cdpath + '/storybook-static');
+    console.log('  ' + chalk.cyan('python -m SimpleHTTPServer'));
     console.log();
     console.log('We suggest that you begin by typing:');
     console.log();
