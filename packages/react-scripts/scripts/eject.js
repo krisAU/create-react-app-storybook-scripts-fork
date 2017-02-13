@@ -118,13 +118,14 @@ prompt(
   console.log(cyan('Updating the scripts'));
   delete appPackage.scripts['eject'];
   Object.keys(appPackage.scripts).forEach(function (key) {
+    let scriptName = key === 'storybook:build' ? 'buildStorybook' : key;
     appPackage.scripts[key] = appPackage.scripts[key]
       .replace(/react-scripts (\w+)/g, 'node scripts/$1.js');
     console.log(
       '  Replacing ' +
       cyan('"react-scripts ' + key + '"') +
       ' with ' +
-      cyan('"node scripts/' + key + '.js"')
+      cyan('"node scripts/' + scriptName + '.js"')
     );
   });
 
